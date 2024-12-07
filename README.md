@@ -23,7 +23,7 @@ Summary/Description: A brief synopsis of the movie.
 Once we have a clear understanding of what data we need, we will decide on the format for storing the extracted information.We are opting for a database that is  MySQL because the dataset is large and may require querying.
 
 #### Step 2 :Set Up the Web Scraper
-n this step, we will set up the web scraper by choosing the appropriate libraries and tools. For scraping static HTML pages, we will use BeautifulSoup, a powerful library for parsing and navigating HTML content. If we need to scale up our scraping to handle multiple pages efficiently, we will use Scrapy, which is designed for larger web scraping projects. If the content on IMDb pages is loaded dynamically with JavaScript, we will incorporate Selenium to simulate a web browser and render pages fully before scraping.
+In this step, we will set up the web scraper by choosing the appropriate libraries and tools. For scraping static HTML pages, we will use BeautifulSoup, a powerful library for parsing and navigating HTML content. If we need to scale up our scraping to handle multiple pages efficiently, we will use Scrapy, which is designed for larger web scraping projects. If the content on IMDb pages is loaded dynamically with JavaScript, we will incorporate Selenium to simulate a web browser and render pages fully before scraping.
 
 The setup process will involve sending HTTP requests to IMDb pages to retrieve raw HTML data. We will then parse the HTML using CSS selectors or XPath expressions to locate and extract the data fields we defined earlier. To ensure our scraper runs smoothly, we will handle potential issues like CAPTCHA and any website structure changes by adding error-handling mechanisms.
 
