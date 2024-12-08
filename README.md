@@ -85,3 +85,26 @@ In this stage of the project, we focused on populating a MySQL database with the
 Once the database structure was in place, we proceeded to insert the cleaned movie data into the appropriate tables. The insert_movies function populated the Movies table with basic movie details such as title, rating, release date, and budget. Other functions such as insert_genres, insert_cast, insert_directors, insert_writers, and insert_production handled the insertion of related data into their respective tables, creating mappings between movies and their genres, cast members, directors, writers, and production companies. These functions ensured that genres, cast, directors, writers, and production companies were inserted uniquely and that the relationships between movies and these entities were accurately recorded using join tables.
 
 After executing the insertion queries for all relevant tables, the database was successfully populated with structured movie data. The relationships between different entities (e.g., movies and their genres, cast, directors) were maintained through foreign key references, ensuring data consistency across tables. The data is now ready for further analysis, querying, or visualization from the MySQL database.
+
+### Testing the database
+#### testing the relationships between tables
+Check if the relationships between tables are working by performing some JOIN queries. For example, to check which movies belong to a particular genre, you can perform a join between Movies and Movie_Genre:
+
+<img width="209" alt="sql query" src="https://github.com/user-attachments/assets/bf3a1627-a639-4264-90ff-37f26bbfc56c">
+
+- Result
+  <img width="157" alt="result 1" src="https://github.com/user-attachments/assets/53f1fd63-762c-4247-8385-0c57e0b99dc1">
+
+  #### Check for Missing or Null Values
+  Ensure that there are no missing or null values in the important fields (like movie_id, genre_name, cast_name, etc.).
+  -Query
+  <img width="238" alt="query 2" src="https://github.com/user-attachments/assets/c48d705e-6523-46aa-b547-a554ab963a62">
+
+
+  -Result
+  <img width="570" alt="result" src="https://github.com/user-attachments/assets/47a63c7c-f74a-464d-8c62-1eb005984290">
+
+  The result returned show that there is no missing or null values fro the dataset in the database
+
+
+
