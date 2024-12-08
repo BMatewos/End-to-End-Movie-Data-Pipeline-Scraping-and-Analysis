@@ -62,3 +62,26 @@ Average ratings by genre over the years.
 Trends in movie ratings over decades.
 Key characteristics of top-rated movies.
 These visualizations and analyses will provide valuable insights into the world of film and support applications like recommendation systems and trend analysis.
+
+## Diving into the project
+### Webscrapping
+
+To begin, we sent HTTP requests to IMDb’s Top 1000 Movies pages using the requests library. Since IMDb typically paginates its lists, we looped through the pages in increments of 250, fetching data from each. To mimic a browser request and avoid being blocked, we added a custom user-agent header. The responses contained the HTML content of each page, which we processed in subsequent steps.
+
+Next, we extracted the embedded JSON-LD data from the page’s HTML. JSON-LD is a structured format that includes metadata about the movies. Using regular expressions, we located the <script> tag containing this data and parsed it into a Python dictionary. This allowed us to access detailed movie information efficiently.
+
+From the parsed JSON-LD data, we extracted key details for each movie, such as the title, description, URL, ratings, content rating, genre, and duration. For fields that were missing in the source data, we assigned default values like 'N/A'. This ensured a consistent structure for the dataset. The movie details were stored as individual records in a Python list, creating a comprehensive collection of information for the Top 1000 Movies.
+
+Once all the data was gathered, we saved it in a JSON file named movies_data.json. This file retained the hierarchical structure of the data and could be used for further processing. To make the data more accessible for analysis and visualization, we converted the JSON file into a Pandas DataFrame and exported it to a CSV file named movies_data.csv.The data is now available in both JSON and CSV formats, enabling further exploration and analysis.
+
+### Data Merging
+
+This phase of the project focused on integrating and cleaning data by merging the IMDb Top 1000 Movies dataset with a larger dataset of over 1 million movies from Kaggle. After standardizing column names, the datasets were merged using the title column as the title, enriching the IMDb dataset with additional details like production information, cast, budget, and revenue. Unnecessary columns were dropped to streamline the data, and duplicate entries were removed based on movie titles. The duration column was converted into a standardized time format (HH:MM:SS), and rows with missing values were eliminated to ensure a clean and complete dataset. The resulting dataset is now enriched, standardized, and ready for further analysis or visualization, providing a comprehensive resource for exploring movie trends and metrics.
+
+### Data Storage
+
+In this stage of the project, we focused on populating a MySQL database with the cleaned movie data. The process began by establishing a connection to the database using pymysql, followed by the creation of multiple tables to store different types of information about movies. These tables include Movies, Genres, Movie_Genre, Cast, Movie_Cast, Directors, Movie_Director, Writers, Movie_Writer, and Movie_Production. The SQL CREATE TABLE commands ensured that each table had the necessary fields, relationships, and foreign key constraints to maintain data integrity.
+
+Once the database structure was in place, we proceeded to insert the cleaned movie data into the appropriate tables. The insert_movies function populated the Movies table with basic movie details such as title, rating, release date, and budget. Other functions such as insert_genres, insert_cast, insert_directors, insert_writers, and insert_production handled the insertion of related data into their respective tables, creating mappings between movies and their genres, cast members, directors, writers, and production companies. These functions ensured that genres, cast, directors, writers, and production companies were inserted uniquely and that the relationships between movies and these entities were accurately recorded using join tables.
+
+After executing the insertion queries for all relevant tables, the database was successfully populated with structured movie data. The relationships between different entities (e.g., movies and their genres, cast, directors) were maintained through foreign key references, ensuring data consistency across tables. The data is now ready for further analysis, querying, or visualization from the MySQL database.
