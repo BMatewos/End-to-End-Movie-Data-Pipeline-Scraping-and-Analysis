@@ -10,11 +10,9 @@ This structured dataset will then be stored in a database, enabling easy access 
 ## Methodology
 **Data Extraction**:
 
-## Data Collection and Extraction
-
 To begin, we initiated HTTP requests to IMDb’s Top 1000 Movies pages using the `requests` library. Since IMDb paginates its lists, we looped through the pages in increments of 250, fetching data from each page. To mimic a browser request and avoid being blocked, we included a custom user-agent header in the requests. The responses returned the HTML content of each page, which we processed in the subsequent steps.
 
-1. ### Data Extraction Process
+ ### Data Extraction Process
 
 1. **Scraping Data from IMDb**:
     - We used the `BeautifulSoup` library to scrape movie details from IMDb.
@@ -45,7 +43,7 @@ To begin, we initiated HTTP requests to IMDb’s Top 1000 Movies pages using the
     - This provided us with both **JSON** and **CSV** formats for further exploration and analysis.
 
 
-2. ### Data Intergration and Cleaning
+### Data Intergration and Cleaning
 
 This phase of the project focused on integrating and cleaning data by merging the IMDb Top 1000 Movies dataset with a larger dataset of over 1 million movies from Kaggle. The integration process was carried out in the following steps:
 link for kaggle dataset:
