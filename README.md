@@ -133,6 +133,24 @@ After executing the insertion queries, the MySQL database was successfully popul
 
 To run this project, follow the steps below:
 
+#### Step 1: Clone the Repository
+First, clone the project repository to your local machine:
+```bash
+git clone https://github.com/Clarkson-Applied-Data-Science/berhe-nyamuchengwa-big_data
+cd berhe-nyamuchengwa-big_data
+
+
+#### Step 2: **Install Dependencies**
+Install the required dependencies using the `requirements.txt` file:
+```bash
+pip install -r requirements.txt
+
+
+
+### How to Run the Project
+
+To run this project, follow the steps below:
+
 **Clone the repository**:
    First, clone the project repository to your local machine:
    ```bash
