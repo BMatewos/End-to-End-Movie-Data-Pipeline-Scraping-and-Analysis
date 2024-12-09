@@ -165,7 +165,8 @@ The analysis conducted on the enriched movie dataset produced the following insi
 
 - Conversely, some genres have higher ratings but lower revenue, like **Thriller, Crime**.
 
--  **Visualization**: <img width="674" alt="graph1" src="https://github.com/user-attachments/assets/99fa3f31-e86a-44bb-8038-a524931bb6ce">
+-  **Visualization**:
+  <img width="674" alt="graph1" src="https://github.com/user-attachments/assets/99fa3f31-e86a-44bb-8038-a524931bb6ce">
 
 ### 2. Correlation Heatmap: Metrics Driving Movie Success
 - **Insight**:
@@ -175,7 +176,8 @@ The analysis conducted on the enriched movie dataset produced the following insi
 
 - High ratings alone do not guarantee financial success, as shown by the weak correlation between ratings and revenue.
 
-- **Visualization**:<img width="641" alt="correlation matrix" src="https://github.com/user-attachments/assets/68af1b02-9b78-4707-af8f-63b09fa63b2e">
+- **Visualization**:
+<img width="641" alt="correlation matrix" src="https://github.com/user-attachments/assets/68af1b02-9b78-4707-af8f-63b09fa63b2e">
 
 ### 3.Movie Poduction over years
 - **Insight**:
@@ -185,7 +187,8 @@ The analysis conducted on the enriched movie dataset produced the following insi
 
 - Industry Resilience: Despite fluctuations, the industry has sustained production over a century, adapting to challenges and changes.
 
-- **Visualization**:<img width="575" alt="movie production over years" src="https://github.com/user-attachments/assets/27c8f91c-a841-4660-a417-941c9df8cf38">
+- **Visualization**:
+  <img width="575" alt="movie production over years" src="https://github.com/user-attachments/assets/27c8f91c-a841-4660-a417-941c9df8cf38">
 
 
 
