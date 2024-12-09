@@ -244,8 +244,7 @@ The project is built on open-source tools and libraries, and we thank their deve
 
 
 
-
-### How to Run the Project
+## How to Run the Project
 
 To run this project, follow the steps below:
 
