@@ -188,7 +188,7 @@ The analysis conducted on the enriched movie dataset produced the following insi
 - Industry Resilience: Despite fluctuations, the industry has sustained production over a century, adapting to challenges and changes.
 
 - **Visualization**:
-  <img width="575" alt="movie production over years" src="https://github.com/user-attachments/assets/27c8f91c-a841-4660-a417-941c9df8cf38">
+<img width="575" alt="movie production over years" src="https://github.com/user-attachments/assets/27c8f91c-a841-4660-a417-941c9df8cf38">
 
 
 
