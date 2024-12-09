@@ -140,6 +140,16 @@ git clone https://github.com/Clarkson-Applied-Data-Science/berhe-nyamuchengwa-bi
 cd berhe-nyamuchengwa-big_data
 
 
+
+
+
+
+```markdown
+#### Step 2: **Install Dependencies**
+Install the required dependencies using the `requirements.txt` file:
+```bash
+pip install -r requirements.txt
+
 #### Step 2: **Install Dependencies**
 Install the required dependencies using the `requirements.txt` file:
 ```bash
