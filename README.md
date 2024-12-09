@@ -2,10 +2,25 @@
 
 # Table of Contents
 
-- [Setup Instructions](#setup-instructions)
-- [Database Setup](#database-setup)
-- [Data Insertion](#data-insertion)
-- [Analysis](#analysis)
+- [Objective](#objective)
+- [Data Sources](#data-sources)
+- [Initial Question](#initial-question)
+- [Technologies Used](#technologies-used)
+- [Methodology](#methodology)
+  - [Data Extraction](#data-extraction)
+  - [Data Extraction Process](#data-extraction-process)
+    - [Scraping Data from IMDb](#scraping-data-from-imdb)
+    - [Extracting Embedded JSON-LD Data](#extracting-embedded-json-ld-data)
+    - [Extracting Key Movie Details](#extracting-key-movie-details)
+    - [Storing Data](#storing-data)
+    - [Data Conversion for Analysis](#data-conversion-for-analysis)
+  - [Data Integration and Cleaning](#data-integration-and-cleaning)
+  - [Database Setup](#database-setup)
+  - [Data Insertion](#data-insertion)
+- [How to Run the Project](#how-to-run-the-project)
+
+
+
 
 ## Objective
 The goal of this project is to extract detailed and structured information about movies from IMDb — a widely trusted and comprehensive source of movie data. Specifically, we aim to gather data such as the movie title, genre, release year, and IMDb rating. Additionally, we will enrich this dataset by integrating it with a supplementary movie dataset from Kaggle, creating a comprehensive data source for further analysis.
