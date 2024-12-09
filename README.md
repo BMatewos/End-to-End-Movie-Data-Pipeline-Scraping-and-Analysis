@@ -153,6 +153,45 @@ Additionally, the **join tables** (such as `Movie_Genre`, `Movie_Cast`, `Movie_D
 
 After executing the insertion queries, the MySQL database was successfully populated with structured movie data. The relationships between entities (e.g., movies and their genres, cast members, directors) were maintained through foreign key references. This ensures that the data remains consistent and can be easily queried for further analysis, visualization, or reporting.
 
+### Analysis Results
+
+The analysis conducted on the enriched movie dataset produced the following insights:
+
+### 1.Comparison of Average Revenue and Ratings Across Top Genres
+- **Insight**:
+- Some genres are both financially successful and highly rated, such as **Drama, Action, Crime, Thriller**, which excels in both revenue and rating.
+
+- Other genres may generate high revenue but are less critically acclaimed (e.g., **Family, Adventure, Animation, Comedy, Fantasy** has high revenue but a relatively lower rating of 7.6).
+
+- Conversely, some genres have higher ratings but lower revenue, like **Thriller, Crime**.
+
+-  **Visualization**: <img width="674" alt="graph1" src="https://github.com/user-attachments/assets/99fa3f31-e86a-44bb-8038-a524931bb6ce">
+
+### 2. Correlation Heatmap: Metrics Driving Movie Success
+- **Insight**:
+- Budget and revenue have the strongest correlation, emphasizing the role of financial investment in box office success.
+
+- Popularity metrics (rating count and IMDb votes) strongly correlate with each other and moderately correlate with revenue, indicating their importance in a movie’s success
+
+- High ratings alone do not guarantee financial success, as shown by the weak correlation between ratings and revenue.
+
+- **Visualization**:<img width="641" alt="correlation matrix" src="https://github.com/user-attachments/assets/68af1b02-9b78-4707-af8f-63b09fa63b2e">
+
+### 3.Movie Poduction over years
+- **Insight**:
+- Spikes in Production: Peaks occur in the late 1930s, early 1960s, and early 2000s, likely tied to industry or cultural shifts.
+
+- Fluctuations: Movie production varies greatly, with notable declines in some years, such as the late 1980s and 1990s.
+
+- Industry Resilience: Despite fluctuations, the industry has sustained production over a century, adapting to challenges and changes.
+
+- **Visualization**:<img width="575" alt="movie production over years" src="https://github.com/user-attachments/assets/27c8f91c-a841-4660-a417-941c9df8cf38">
+
+
+
+
+
+
 ### How to Run the Project
 
 To run this project, follow the steps below:
