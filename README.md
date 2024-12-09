@@ -147,6 +147,30 @@ python scripts/webscrapper.py
 python scripts/scrapped_to_csv.py
 -This script saves the data we scrapped from the website incsv format
 
+python scripts/mergingdata.py
+-Combines the scrapped data and data from kaggle.
+
+python scripts/datacleaning.py
+-This step handles duplicates, fills missing values, and formats the data after integration
+
+python scripts/database.py
+-Set up the MySQL database structure by running the script,This creates the necessary tables in MySQL database to store movie data.
+
+python scripts/data_insertion.py
+-This populates the database with structured movie data, ready for analysis
+
+python scripts/analysis.py
+-This script queries the database and produces visualizations or summaries of trends.
+
+
+
+
+
+
+
+
+
+
 
 
 
