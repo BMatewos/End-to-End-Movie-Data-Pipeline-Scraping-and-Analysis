@@ -161,18 +161,8 @@ python scripts/data_insertion.py
 
 python scripts/analysis.py
 -This script queries the database and produces visualizations or summaries of trends.
-##############################################################
-
-## new
-
-###############################################################
 
 
-
-
-##############################################################
-# New Section: Your New Section Name Here
-##############################################################
 
 
 
