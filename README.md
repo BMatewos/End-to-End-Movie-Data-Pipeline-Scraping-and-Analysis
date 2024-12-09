@@ -1,4 +1,4 @@
-# # Movie Data Scraping and Analysis
+# Movie Data Scraping and Analysis
 ## Objective
 The goal of this project is to extract detailed and structured information about movies from IMDb — a widely trusted and comprehensive source of movie data. Specifically, we aim to gather data such as the movie title, genre, release year, and IMDb rating. Additionally, we will enrich this dataset by integrating it with a supplementary movie dataset from Kaggle, creating a comprehensive data source for further analysis.
 
@@ -67,14 +67,51 @@ link for kaggle dataset:
 
 The resulting dataset is now enriched, standardized, and ready for further analysis or visualization, providing a comprehensive resource for exploring movie trends and metrics.
 
+### Database Setup:
+In this stage of the project, we focused on setting up a MySQL database to store the structured movie data. The first step was to establish a connection to the MySQL database using the `pymysql` library. With the connection in place, we proceeded to create multiple tables to store different types of movie-related information. These tables included:
 
-### Data Storage
+- **Movies**: Stores basic movie details like title, rating, release date, and budget.
+- **Genres**: Stores movie genres such as action, comedy, drama, etc.
+- **Movie_Genre**: A join table to associate movies with their respective genres.
+- **Cast**: Stores information about actors and actresses.
+- **Movie_Cast**: A join table to link movies to their cast members.
+- **Directors**: Stores director information.
+- **Movie_Director**: A join table to link movies with their directors.
+- **Writers**: Stores information about the writers of the movie.
+- **Movie_Writer**: A join table to link movies with their writers.
+- **Movie_Production**: Stores production company information.
 
-In this stage of the project, we focused on populating a MySQL database with the cleaned movie data. The process began by establishing a connection to the database using pymysql, followed by the creation of multiple tables to store different types of information about movies. These tables include Movies, Genres, Movie_Genre, Cast, Movie_Cast, Directors, Movie_Director, Writers, Movie_Writer, and Movie_Production. The SQL CREATE TABLE commands ensured that each table had the necessary fields, relationships, and foreign key constraints to maintain data integrity.
+Each table was created using SQL `CREATE TABLE` commands, ensuring the necessary fields, relationships, and foreign key constraints were included. These constraints were put in place to maintain data integrity across the different tables.
 
-Once the database structure was in place, we proceeded to insert the cleaned movie data into the appropriate tables. The insert_movies function populated the Movies table with basic movie details such as title, rating, release date, and budget. Other functions such as insert_genres, insert_cast, insert_directors, insert_writers, and insert_production handled the insertion of related data into their respective tables, creating mappings between movies and their genres, cast members, directors, writers, and production companies. These functions ensured that genres, cast, directors, writers, and production companies were inserted uniquely and that the relationships between movies and these entities were accurately recorded using join tables.
+**Advantages of Database Setup**:
+- **Data Integrity**: The use of foreign key constraints between tables ensures that data is consistent and accurate, preventing orphan records and ensuring relationships between entities (e.g., movies and genres, cast members, directors) are properly maintained.
+- **Scalability**: By structuring the data in a relational database, it becomes easier to scale the project. New data or entities can be added without disrupting the existing data structure, making it a flexible solution for future data growth.
+- **Efficient Querying**: Storing movie data in a structured database allows for complex querying and retrieval of specific information (e.g., fetching movies by genre, rating, or director). This enables efficient data analysis and supports further exploration of movie trends.
+- **Data Centralization**: By storing all the data in a central database, it is easier to manage and maintain. All data related to movies, genres, cast, etc., is housed in one location, making it easier to access and update.
 
-After executing the insertion queries for all relevant tables, the database was successfully populated with structured movie data. The relationships between different entities (e.g., movies and their genres, cast, directors) were maintained through foreign key references, ensuring data consistency across tables. The data is now ready for further analysis, querying, or visualization from the MySQL database.
+### Data Insertion:
+Once the database structure was established, we moved on to inserting the cleaned movie data into the relevant tables. The insertion process involved using several functions to populate each table:
+
+- **insert_movies**: This function inserted basic movie details, such as the movie title, IMDb rating, release date, and budget, into the `Movies` table.
+- **insert_genres**: This function inserted movie genres into the `Genres` table.
+- **insert_cast**: This function inserted cast members into the `Cast` table.
+- **insert_directors**: This function inserted director information into the `Directors` table.
+- **insert_writers**: This function inserted writer information into the `Writers` table.
+- **insert_production**: This function inserted production company details into the `Movie_Production` table.
+
+Additionally, the **join tables** (such as `Movie_Genre`, `Movie_Cast`, `Movie_Director`, `Movie_Writer`) were used to create relationships between the movies and their respective genres, cast members, directors, writers, and production companies. These functions ensured that each genre, cast, director, writer, and production company was inserted uniquely, maintaining the integrity of the data.
+
+**Advantages of Data Insertion**:
+- **Data Accuracy**: Using structured functions to insert data into specific tables ensures that each type of data (e.g., genres, cast, directors) is inserted correctly and avoids redundancy or errors.
+- **Relationships Maintenance**: By using join tables to link movies with their respective genres, cast, and production teams, the relationships between these entities are accurately recorded and can be efficiently queried or updated.
+- **Data Normalization**: The insertion process ensures that data is normalized, meaning that movie details are stored separately from other related data (such as cast or genre). This reduces duplication and makes it easier to update or modify data without affecting other tables.
+- **Efficient Data Management**: With the database fully populated, it becomes easy to manage and update movie data. This structured approach makes future modifications, such as adding new movies or updating cast and production details, quick and straightforward.
+
+After executing the insertion queries, the MySQL database was successfully populated with structured movie data. The relationships between entities (e.g., movies and their genres, cast members, directors) were maintained through foreign key references. This ensures that the data remains consistent and can be easily queried for further analysis, visualization, or reporting.
+
+
+
+
 
 ### Testing the database
 #### testing the relationships between tables
