@@ -17,6 +17,7 @@
   - [Data Integration and Cleaning](#data-integration-and-cleaning)
   - [Database Setup](#database-setup)
   - [Data Insertion](#data-insertion)
+- [Analysis Results](#Analysis-Results)
 - [How to Run the Project](#how-to-run-the-project)
 
 
