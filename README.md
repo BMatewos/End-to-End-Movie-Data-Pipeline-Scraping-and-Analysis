@@ -1,82 +1,74 @@
+# # Movie Data Scraping and Analysis
 ## Objective
 The goal of this project is to extract detailed and structured information about movies from IMDb — a widely trusted and comprehensive source of movie data. Specifically, we aim to gather data such as the movie title, genre, release year, and IMDb rating. Additionally, we will enrich this dataset by integrating it with a supplementary movie dataset from Kaggle, creating a comprehensive data source for further analysis.
 
 This structured dataset will then be stored in a database, enabling easy access and manipulation. By organizing and structuring this data, we unlock its potential for applications such as building recommendation systems, conducting trend analyses, and creating visualizations to understand movie ratings and genre popularity over time.
 
-The project will support answering questions such as:
+## Initial Question
+"How can we store and analyze movie ratings over time, and are there any correlations between movie genres and their ratings?"
 
-Which genres have consistently high ratings over the years?
-How have average movie ratings evolved over decades?
-What are the key characteristics of top-rated movies?
-This project will lay the foundation for these kinds of insights by efficiently collecting, organizing, and storing movie data from IMDb and Kaggle.
+## Methodology
+**Data Extraction**:
 
-### Steps
+## Data Collection and Extraction
 
-#### Step 1: Defining Requirements
-First, we will define our requirements by identifying the specific data fields to be extracted from IMDb and Kaggle. These fields may include:
+To begin, we initiated HTTP requests to IMDb’s Top 1000 Movies pages using the `requests` library. Since IMDb paginates its lists, we looped through the pages in increments of 250, fetching data from each page. To mimic a browser request and avoid being blocked, we included a custom user-agent header in the requests. The responses returned the HTML content of each page, which we processed in the subsequent steps.
 
-Title: The name of the movie.
-Release Year: The year the movie was released.
-Genres: The movie's genres (e.g., drama, action, comedy).
-IMDb Rating: The average rating given by users.
-Runtime: The length of the movie.
-Summary/Description: A brief synopsis of the movie.
-We will also consider attributes from the Kaggle dataset that may include:
+1. ### Data Extraction Process
 
-Additional movie metrics (e.g., box office revenue, director, actors, production companies, etc.).
-Once we have a clear understanding of the data needed, we will decide on the format for storing the extracted information. Given the large dataset, we will choose a MySQL database to facilitate efficient querying and analysis.
+1. **Scraping Data from IMDb**:
+    - We used the `BeautifulSoup` library to scrape movie details from IMDb.
+    - The raw data was initially stored in **JSON format** for structured access.
 
-#### Step 2: Setting Up the Web Scraper
-We will set up a web scraper using appropriate libraries and tools:
+2. **Extracting Embedded JSON-LD Data**:
+    - JSON-LD is a structured data format embedded in the HTML of IMDb pages, containing rich metadata about the movies.
+    - We utilized regular expressions to locate the `<script>` tag containing this JSON-LD data and parsed it into a Python dictionary.
+    - This method allowed us to efficiently access detailed movie information.
 
-BeautifulSoup will be used for parsing and navigating HTML content to scrape static pages.
-The setup will include sending HTTP requests to IMDb pages and parsing the responses with CSS selectors or XPath expressions to locate and extract the required data fields. We will also implement error-handling mechanisms to manage issues like CAPTCHA and potential changes in the website structure.
+3. **Extracting Key Movie Details**:
+    - From the parsed JSON-LD data, we extracted the following key details for each movie:
+        - Title
+        - Description
+        - URL
+        - IMDb Rating
+        - Content Rating
+        - Genre
+        - Duration
+    - For any missing fields in the source data, we assigned default values like ‘N/A’ to maintain a consistent structure across all records.
 
-#### Step 3: Data Flow
-The data flow will be structured into three main stages:
+4. **Storing Data**:
+    - Each movie's details were stored as individual records in a Python list, forming a comprehensive collection of information for the Top 1000 Movies.
+    - Once all the data was gathered, we saved it into a **JSON file** named `movies_data.json`. This file retained the hierarchical structure of the data, which made it suitable for further processing.
+    
+5. **Data Conversion for Analysis**:
+    - For easier analysis and visualization, we converted the JSON data into a Pandas DataFrame and exported it as a **CSV file** named `movies_data.csv`.
+    - This provided us with both **JSON** and **CSV** formats for further exploration and analysis.
 
-Scraping Raw HTML: The scraper will send requests to IMDb pages and retrieve raw HTML content.
-Parsing and Extracting Data: The raw HTML will be processed using libraries such as BeautifulSoup, Scrapy, or Selenium to extract relevant information.
-Storing Structured Data: The extracted data will be stored in a MySQL database, where we will implement data validation to ensure data integrity and avoid missing or duplicate entries.
-#### Step 4: Integrating the Kaggle Dataset
-After the IMDb data is extracted, we will load the Kaggle dataset (using pandas or another data-handling tool). We will clean and align both datasets to ensure a consistent format and merge them based on a common attribute like the movie title or IMDb ID.
 
-#### Step 5: Ethics and Legalities
-Before starting, we will review IMDb’s Terms of Use and their robots.txt file to ensure compliance with their scraping policies. To avoid overwhelming IMDb’s servers, we will incorporate rate-limiting by adding delays between requests. This responsible approach will help prevent the scraper from being flagged or blocked.
+2. ### Data Intergration and Cleaning
 
-#### Step 6: Testing
-We will conduct thorough testing to ensure the scraper operates as expected. This involves running the scraper on a small subset of IMDb pages to verify the accuracy of the data extraction. During this phase, we will debug any issues in parsing logic and add error-handling mechanisms to handle failed requests, timeouts, and unexpected website changes. We will also test the scraper's ability to handle larger datasets efficiently.
+This phase of the project focused on integrating and cleaning data by merging the IMDb Top 1000 Movies dataset with a larger dataset of over 1 million movies from Kaggle. The integration process was carried out in the following steps:
+link for kaggle dataset:
 
-#### Step 7: Data Cleaning and Storage
-After gathering and merging the data, we will clean the dataset by:
+1. **Standardizing Column Names**:
+    - Both datasets were reviewed, and column names were standardized to ensure consistency across the two datasets.
 
-Removing duplicates.
-Filling in missing values.
-Standardizing data formats.
-The final, cleaned data will be stored in the MySQL database for easy access and further analysis.
+2. **Merging Datasets**:
+    - The datasets were merged using the `title` column as the common key. This enriched the IMDb dataset with additional movie details from the Kaggle dataset, such as:
+        - Production information
+        - Cast
+        - Budget
+        - Revenue
 
-#### Step 8: Analyzing and Visualizing Results
-Once the data is stored in the database, we will conduct analysis using SQL queries to identify trends and insights. We will use visualization tools like Matplotlib or Seaborn to create charts and graphs that reveal patterns, such as:
+3. **Data Cleaning**:
+    - Removed duplicates and handled missing values to ensure data consistency.
+    - Unnecessary columns were dropped to streamline the dataset.
+    - Duplicate entries were removed based on movie titles to ensure uniqueness.
+    - The `duration` column was converted into a standardized time format (HH:MM:SS).
+    - Rows with missing values were eliminated to ensure a clean and complete dataset.
 
-Average ratings by genre over the years.
-Trends in movie ratings over decades.
-Key characteristics of top-rated movies.
-These visualizations and analyses will provide valuable insights into the world of film and support applications like recommendation systems and trend analysis.
+The resulting dataset is now enriched, standardized, and ready for further analysis or visualization, providing a comprehensive resource for exploring movie trends and metrics.
 
-## Diving into the project
-### Webscrapping
-
-To begin, we sent HTTP requests to IMDb’s Top 1000 Movies pages using the requests library. Since IMDb typically paginates its lists, we looped through the pages in increments of 250, fetching data from each. To mimic a browser request and avoid being blocked, we added a custom user-agent header. The responses contained the HTML content of each page, which we processed in subsequent steps.
-
-Next, we extracted the embedded JSON-LD data from the page’s HTML. JSON-LD is a structured format that includes metadata about the movies. Using regular expressions, we located the <script> tag containing this data and parsed it into a Python dictionary. This allowed us to access detailed movie information efficiently.
-
-From the parsed JSON-LD data, we extracted key details for each movie, such as the title, description, URL, ratings, content rating, genre, and duration. For fields that were missing in the source data, we assigned default values like 'N/A'. This ensured a consistent structure for the dataset. The movie details were stored as individual records in a Python list, creating a comprehensive collection of information for the Top 1000 Movies.
-
-Once all the data was gathered, we saved it in a JSON file named movies_data.json. This file retained the hierarchical structure of the data and could be used for further processing. To make the data more accessible for analysis and visualization, we converted the JSON file into a Pandas DataFrame and exported it to a CSV file named movies_data.csv.The data is now available in both JSON and CSV formats, enabling further exploration and analysis.
-
-### Data Merging
-
-This phase of the project focused on integrating and cleaning data by merging the IMDb Top 1000 Movies dataset with a larger dataset of over 1 million movies from Kaggle. After standardizing column names, the datasets were merged using the title column as the title, enriching the IMDb dataset with additional details like production information, cast, budget, and revenue. Unnecessary columns were dropped to streamline the data, and duplicate entries were removed based on movie titles. The duration column was converted into a standardized time format (HH:MM:SS), and rows with missing values were eliminated to ensure a clean and complete dataset. The resulting dataset is now enriched, standardized, and ready for further analysis or visualization, providing a comprehensive resource for exploring movie trends and metrics.
 
 ### Data Storage
 
@@ -93,15 +85,18 @@ Check if the relationships between tables are working by performing some JOIN qu
 <img width="209" alt="sql query" src="https://github.com/user-attachments/assets/bf3a1627-a639-4264-90ff-37f26bbfc56c">
 
 - Result
+
   <img width="157" alt="result 1" src="https://github.com/user-attachments/assets/53f1fd63-762c-4247-8385-0c57e0b99dc1">
 
   #### Check for Missing or Null Values
   Ensure that there are no missing or null values in the important fields (like movie_id, genre_name, cast_name, etc.).
-  -Query
+  - Query
+  
   <img width="238" alt="query 2" src="https://github.com/user-attachments/assets/c48d705e-6523-46aa-b547-a554ab963a62">
 
 
-  -Result
+  - Result
+  
   <img width="570" alt="result" src="https://github.com/user-attachments/assets/47a63c7c-f74a-464d-8c62-1eb005984290">
 
   The result returned show that there is no missing or null values fro the dataset in the database
