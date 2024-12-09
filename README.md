@@ -139,8 +139,14 @@ To run this project, follow the steps below:
    git clone https://github.com/Clarkson-Applied-Data-Science/berhe-nyamuchengwa-big_data
    cd berhe-nyamuchengwa-big_data
 
-python3 -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+pip install -r requirements.txt
+berhe-nyamuchengwa-big_data/
+├── scripts/
+│   └── webscraper.py
+├── requirements.txt
+├── README.md
+
+
 
 
 
