@@ -4,8 +4,28 @@ The goal of this project is to extract detailed and structured information about
 
 This structured dataset will then be stored in a database, enabling easy access and manipulation. By organizing and structuring this data, we unlock its potential for applications such as building recommendation systems, conducting trend analyses, and creating visualizations to understand movie ratings and genre popularity over time.
 
+## Data Sources
+
+1. **IMDb Top 1000 Movies**: A list of the top 1000 movies, including key attributes such as title, genre, release year, IMDb rating, and runtime.
+2. **Kaggle Movie Dataset**: A larger dataset of over 1 million movies, containing additional information such as director, cast, production details, and box office revenue.
+
+link:https://www.kaggle.com/datasets/alanvourch/tmdb-movies-daily-updates
+
+
+These two datasets were merged on the movie title to create an enriched database containing both basic and advanced movie details.
+
 ## Initial Question
 "How can we store and analyze movie ratings over time, and are there any correlations between movie genres and their ratings?"
+
+## Technologies Used
+
+- **Python**: For web scraping, data cleaning, and processing.
+- **BeautifulSoup**: For scraping and parsing HTML data from IMDb.
+- **Pandas**: For data cleaning, manipulation, and CSV conversion.
+- **MySQL**: For storing and managing the structured movie data.
+- **requests**: To send HTTP requests and retrieve IMDb pages.
+- **Matplotlib/Seaborn**: For data visualization (future steps).
+  
 
 ## Methodology
 **Data Extraction**:
@@ -109,32 +129,25 @@ Additionally, the **join tables** (such as `Movie_Genre`, `Movie_Cast`, `Movie_D
 
 After executing the insertion queries, the MySQL database was successfully populated with structured movie data. The relationships between entities (e.g., movies and their genres, cast members, directors) were maintained through foreign key references. This ensures that the data remains consistent and can be easily queried for further analysis, visualization, or reporting.
 
+### How to Run the Project
+
+To run this project, follow the steps below:
+
+**Clone the repository**:
+   First, clone the project repository to your local machine:
+   ```bash
+   git clone https://github.com/Clarkson-Applied-Data-Science/berhe-nyamuchengwa-big_data
+   cd berhe-nyamuchengwa-big_data
+
+python3 -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
 
 
 
-### Testing the database
-#### testing the relationships between tables
-Check if the relationships between tables are working by performing some JOIN queries. For example, to check which movies belong to a particular genre, you can perform a join between Movies and Movie_Genre:
-
-<img width="209" alt="sql query" src="https://github.com/user-attachments/assets/bf3a1627-a639-4264-90ff-37f26bbfc56c">
-
-- Result
-
-  <img width="157" alt="result 1" src="https://github.com/user-attachments/assets/53f1fd63-762c-4247-8385-0c57e0b99dc1">
-
-  #### Check for Missing or Null Values
-  Ensure that there are no missing or null values in the important fields (like movie_id, genre_name, cast_name, etc.).
-  - Query
-  
-  <img width="238" alt="query 2" src="https://github.com/user-attachments/assets/c48d705e-6523-46aa-b547-a554ab963a62">
 
 
-  - Result
-  
-  <img width="570" alt="result" src="https://github.com/user-attachments/assets/47a63c7c-f74a-464d-8c62-1eb005984290">
 
-  The result returned show that there is no missing or null values fro the dataset in the database
 
 
 
