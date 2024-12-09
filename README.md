@@ -18,6 +18,7 @@
   - [Database Setup](#database-setup)
   - [Data Insertion](#data-insertion)
 - [Analysis Results](#Analysis-Results)
+- [Results and Discussions](#Results-and-Discussions)
 - [How to Run the Project](#how-to-run-the-project)
 
 
@@ -191,6 +192,55 @@ The analysis conducted on the enriched movie dataset produced the following insi
 <img width="575" alt="movie production over years" src="https://github.com/user-attachments/assets/27c8f91c-a841-4660-a417-941c9df8cf38">
 
 
+### Results and Discussions
+#### Challenges and Limitations
+During the project, several challenges arose, particularly in data cleaning and integration. The IMDb dataset and the external source had inconsistencies, missing values, and format mismatches, requiring extensive preprocessing to ensure that the data was reliable for analysis. This cleaning process, along with the merging of the two datasets, resulted in a reduction in the overall dataset size due to records with missing or incompatible information. Consequently, the scope of the analysis was limited by these data quality issues.
+
+Another challenge was the limitations associated with scraping data from IMDb. Changes in the website structure, rate-limiting, and legal considerations made it difficult to collect consistent and complete data. These factors contributed to missing or incomplete records, further reducing the size and accuracy of the dataset. Despite these challenges, the project provided valuable insights, though the limitations in data quality and scraping techniques influenced the depth of the analysis.
+
+#### Conclusion and Future Work
+This project successfully integrated IMDb movie data with external datasets, storing the results in a structured database for efficient querying and analysis. The analysis revealed significant correlations between movie success factors like genre, budget, and popularity, and provided insights into trends over time.
+
+In the future, we plan to extend the analysis to include additional factors such as marketing efforts, cast popularity, and director influence, as well as explore more advanced machine learning techniques to predict the success of movies based on these factors.
+
+# Code/API Appendix
+
+In this section, we provide a detailed overview of the code and APIs used during the project. The main components include web scraping using the `BeautifulSoup` library, data storage using `MySQL`, and analysis using Python's `Pandas`, `Matplotlib`, and `Seaborn`. The code structure is as follows:
+
+## Web Scraping with BeautifulSoup
+
+- Data was scraped from IMDb using the `requests` library to fetch HTML content and `BeautifulSoup` to parse and extract relevant movie details (e.g., titles, ratings, genres, etc.).
+- The data was then cleaned and structured into a usable format.
+
+## Data Storage with MySQL
+
+- The scraped data was stored in a MySQL database using Python's `mysql-connector` library. A relational schema was created to store movie information and their associated genres, ratings, and other metadata.
+
+## Data Analysis with Pandas
+
+- The stored data was extracted and loaded into `Pandas` DataFrames for cleaning, manipulation, and analysis. Various operations were performed, such as grouping data by genre, calculating average ratings, and analyzing trends over time.
+
+## Visualization with Matplotlib and Seaborn
+
+- Visualizations were created using `Matplotlib` and `Seaborn` to display trends in movie ratings, popularity, and genre performance. Graphs such as bar charts, scatter plots, and heatmaps were generated to illustrate key findings.
+
+# Licensing and Credits
+
+## IMDb Data
+The IMDb dataset was accessed through web scraping, adhering to IMDb's terms of service and usage guidelines. Please note that scraping IMDb data for commercial purposes may require special permissions.
+
+## Libraries and Tools
+- **BeautifulSoup**: Used for parsing HTML and extracting data from IMDb.
+- **Pandas**: Utilized for data manipulation and analysis.
+- **Matplotlib**: Used for creating static visualizations.
+- **Seaborn**: Employed to enhance the aesthetics of visualizations.
+- **MySQL**: A relational database used for storing and querying the movie data.
+
+## Code License
+The code provided in this project is licensed under the MIT License, allowing users to freely use, modify, and distribute the code with proper attribution.
+
+## Acknowledgments
+The project is built on open-source tools and libraries, and we thank their developers for providing these invaluable resources. Special thanks to the contributors of BeautifulSoup, Pandas, Matplotlib, Seaborn, and MySQL Connector for their contributions to the Python ecosystem.
 
 
 
