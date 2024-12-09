@@ -140,11 +140,14 @@ To run this project, follow the steps below:
    cd berhe-nyamuchengwa-big_data
 
 pip install -r requirements.txt
-berhe-nyamuchengwa-big_data/
-├── scripts/
-│   └── webscraper.py
-├── requirements.txt
-├── README.md
+
+python scripts/webscrapper.py
+-This script extracts movie data from IMDb and saves it as movies_data.json and movies_data.csv in the root directory.
+
+python scripts/scrapped_to_csv.py
+-This script saves the data we scrapped from the website incsv format
+
+
 
 
 
