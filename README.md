@@ -42,7 +42,7 @@ link:https://www.kaggle.com/datasets/alanvourch/tmdb-movies-daily-updates
 These two datasets were merged on the movie title to create an enriched database containing both basic and advanced movie details.
 
 ## Initial Question
-"How can we store and analyze movie ratings over time, and are there any correlations between movie genres and their ratings?"
+"How can we store and analyze movie ratings in a database, and are there any correlations between movie genres and their ratings?"
 
 ## Technologies Used
 
