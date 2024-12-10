@@ -19,7 +19,7 @@
   - [Data Insertion](#data-insertion)
 - [Analysis Results](#Analysis-Results)
 - [Results and Discussions](#Results-and-Discussions)
-- [Code/API Appendix](#Code/API-Appendix)
+- [Code API Appendix](#Code-API-Appendix)
 - [Licensing and Credits](#Licensing-and-Credits)
 - [How to Run the Project](#how-to-run-the-project)
 
@@ -205,7 +205,7 @@ This project successfully integrated IMDb movie data with external datasets, sto
 
 In the future, we plan to extend the analysis to include additional factors such as marketing efforts, cast popularity, and director influence, as well as explore more advanced machine learning techniques to predict the success of movies based on these factors.
 
-# Code/API Appendix
+# Code API Appendix
 
 In this section, we provide a detailed overview of the code and APIs used during the project. The main components include web scraping using the `BeautifulSoup` library, data storage using `MySQL`, and analysis using Python's `Pandas`, `Matplotlib`, and `Seaborn`. The code structure is as follows:
 
