@@ -19,7 +19,7 @@
   - [Data Insertion](#data-insertion)
 - [Analysis Results](#Analysis-Results)
 - [Results and Discussions](#Results-and-Discussions)
-- [Code/API Appendix](#Code-/-API-Appendix)
+- [Code/API Appendix](#Code/API-Appendix)
 - [Licensing and Credits](#Licensing-and-Credits)
 - [How to Run the Project](#how-to-run-the-project)
 
