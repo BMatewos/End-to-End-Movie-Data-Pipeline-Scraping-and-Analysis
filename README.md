@@ -1,4 +1,4 @@
-# Movie Data Scraping and Analysis
+# End to End movie data pipeline Scraping and Analysis
 
 # Table of Contents
 
